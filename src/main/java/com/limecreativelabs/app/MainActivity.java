@@ -17,15 +17,26 @@
 package com.limecreativelabs.app;
 
 import android.app.Activity;
+import android.content.res.AssetManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ListView;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
+import java.util.List;
 
 public class MainActivity extends Activity {
 
     private ListView mList;
 
     private LoadTask mTask;
+
+    private static final String TUTORIAL_LIST = "tutorials.json";
 
     /**
      * Called when the activity is first created.
@@ -60,24 +71,49 @@ public class MainActivity extends Activity {
         super.onDestroy();
     }
 
-    class LoadTask extends AsyncTask<Void, Void, Tutorial[]> {
+    class LoadTask extends AsyncTask<Void, Void, List<Tutorial>> {
 
         @Override
-        protected Tutorial[] doInBackground(Void... voids) {
-            return new Tutorial[0];  //To change body of implemented methods use File | Settings | File Templates.
+        protected List<Tutorial> doInBackground(Void... voids) {
+            return loadTutorials();
         }
 
         @Override
-        protected void onPostExecute(Tutorial[] tutorials) {
+        protected void onPostExecute(List<Tutorial> tutorials) {
 
-            if (!isCancelled() && tutorials != null && tutorials.length > 0) {
-                loadTutorials();
+            if (!isCancelled() && tutorials != null && tutorials.size() > 0) {
+                mList.setAdapter(new TutorialArrayAdapter(MainActivity.this, tutorials));
             }
 
             mTask = null;
         }
 
-        private void loadTutorials() {
+        /**
+         * Open Json file and parse tutorials into clasess
+         */
+        private List<Tutorial> loadTutorials() {
+
+            Type listType = new TypeToken<List<Tutorial>>() {
+            }.getType();
+
+            try {
+
+                AssetManager assetManager = getAssets();
+                InputStream inputStream;
+                inputStream = assetManager.open(TUTORIAL_LIST);
+
+                JsonReader reader = new JsonReader(new InputStreamReader(inputStream,
+                        "UTF-8"));
+
+                Gson gson = new Gson();
+                List<Tutorial> target = gson.fromJson(reader, listType);
+
+                return target;
+
+            } catch (Exception e) {
+            }
+
+            return null;
         }
     }
 }
