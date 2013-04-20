@@ -16,12 +16,15 @@
 
 package com.limecreativelabs.app;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * @author Antonio Leiva
  *         <p/>
  *         Tutorial model class used to fill main ListView
  */
-public class Tutorial {
+public class Tutorial implements Parcelable {
 
     private int id;
 
@@ -30,6 +33,8 @@ public class Tutorial {
     private String nameEn;
 
     private String date;
+
+    private String url;
 
     public int getId() {
         return id;
@@ -57,5 +62,48 @@ public class Tutorial {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    /* Parcelable implementation */
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel out, int flags) {
+        out.writeInt(id);
+        out.writeString(nameEs);
+        out.writeString(nameEn);
+        out.writeString(date);
+        out.writeString(url);
+    }
+
+    public static final Parcelable.Creator<Tutorial> CREATOR
+            = new Parcelable.Creator<Tutorial>() {
+        public Tutorial createFromParcel(Parcel in) {
+            return new Tutorial(in);
+        }
+
+        public Tutorial[] newArray(int size) {
+            return new Tutorial[size];
+        }
+    };
+
+    private Tutorial(Parcel in) {
+        id = in.readInt();
+        nameEs = in.readString();
+        nameEn = in.readString();
+        date = in.readString();
+        url = in.readString();
     }
 }

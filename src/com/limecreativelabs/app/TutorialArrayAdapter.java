@@ -23,15 +23,23 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Array Adapter that manages Android tutorials in Main ListView
  */
 public class TutorialArrayAdapter extends ArrayAdapter<Tutorial> {
 
-    public TutorialArrayAdapter(Context context, List<Tutorial> objects) {
+    private ArrayList<Tutorial> mTutorials;
+
+    public TutorialArrayAdapter(Context context, ArrayList<Tutorial> objects) {
         super(context, R.layout.tutorial_list_item, objects);
+
+        mTutorials = objects;
+    }
+
+    public ArrayList<Tutorial> getTutorials() {
+        return mTutorials;
     }
 
     @Override
@@ -42,7 +50,7 @@ public class TutorialArrayAdapter extends ArrayAdapter<Tutorial> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        ViewHolder holder = null;
+        ViewHolder holder;
 
         if (convertView == null) {
             LayoutInflater vi = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);

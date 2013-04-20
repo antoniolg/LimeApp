@@ -1,8 +1,9 @@
 [
     {
-        id: 1, nameEs: "nombre1", nameEn: "nombre1", date: "23/08/2012",
-        id: 2, nameEs: "nombre2", nameEn: "nombre2", date: "12/01/2013",
-        id: 3, nameEs: "nombre3", nameEn: "nombre3", date: "27/01/2013",
-        id: 4, nameEs: "nombre4", nameEn: "nombre4", date: "31/01/2013"
+        id: 1,
+        nameEs: "ProgressBar en la ActionBar al refrescar la vista",
+        nameEn: "ProgressBar en la ActionBar al refrescar la vista",
+        date: "15/04/2012",
+        url: "http://www.limecreativelabs.com/progressbar-actionbar-refrescar-vista"
     }
 ]

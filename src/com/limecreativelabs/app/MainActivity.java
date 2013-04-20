@@ -33,13 +33,17 @@ import com.limecreativelabs.app.shared.BaseActivity;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
-import java.util.List;
+import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
+    private static final String EXTRA_TUTORIALS = "MainActivity:tutorials";
+
     private ListView mList;
+
+    private TutorialArrayAdapter mAdapter;
 
     private LoadTask mTask;
 
@@ -58,12 +62,28 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
             mList = (ListView) findViewById(android.R.id.list);
         }
 
-        if (savedInstanceState != null) {
+        if (savedInstanceState == null) {
             mTask = new LoadTask();
             mTask.execute();
+        } else {
+            ArrayList<Tutorial> tutorials = savedInstanceState.getParcelableArrayList(EXTRA_TUTORIALS);
+            setListAdapter(tutorials);
         }
 
         mList.setOnItemClickListener(this);
+    }
+
+    private void setListAdapter(ArrayList<Tutorial> tutorials) {
+        mAdapter = new TutorialArrayAdapter(this, tutorials);
+        mList.setAdapter(mAdapter);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+
+        outState.putParcelableArrayList(EXTRA_TUTORIALS, mAdapter.getTutorials());
+
+        super.onSaveInstanceState(outState);
     }
 
     @Override
@@ -80,31 +100,32 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
         Class<?> c = MainActivity.class;
 
-        switch (position) {
+        switch ((int) mAdapter.getItemId(position)) {
             case 1:
                 c = ActionBarRefreshActivity.class;
                 break;
         }
 
         Intent intent = new Intent(this, c);
+        intent.putExtra(EXTRA_TUTORIAL_URL, mAdapter.getItem(position).getUrl());
         startActivity(intent);
     }
 
     /**
      * Load tutorials from a Json file in Assets
      */
-    class LoadTask extends AsyncTask<Void, Void, List<Tutorial>> {
+    class LoadTask extends AsyncTask<Void, Void, ArrayList<Tutorial>> {
 
         @Override
-        protected List<Tutorial> doInBackground(Void... voids) {
+        protected ArrayList<Tutorial> doInBackground(Void... voids) {
             return loadTutorials();
         }
 
         @Override
-        protected void onPostExecute(List<Tutorial> tutorials) {
+        protected void onPostExecute(ArrayList<Tutorial> tutorials) {
 
             if (!isCancelled() && tutorials != null && tutorials.size() > 0) {
-                mList.setAdapter(new TutorialArrayAdapter(MainActivity.this, tutorials));
+                setListAdapter(tutorials);
             }
 
             mTask = null;
@@ -113,9 +134,9 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         /**
          * Open Json file and parse tutorials into classes
          */
-        private List<Tutorial> loadTutorials() {
+        private ArrayList<Tutorial> loadTutorials() {
 
-            Type listType = new TypeToken<List<Tutorial>>() {
+            Type listType = new TypeToken<ArrayList<Tutorial>>() {
             }.getType();
 
             try {
