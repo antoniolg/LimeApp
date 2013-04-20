@@ -23,16 +23,32 @@ package com.limecreativelabs.app;
  */
 public class Tutorial {
 
-    private String name;
+    private int id;
+
+    private String nameEs;
+
+    private String nameEn;
 
     private String date;
 
-    public String getName() {
-        return name;
+    public int getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return nameEs;
+    }
+
+    public void setNameEs(String name) {
+        this.nameEs = name;
+    }
+
+    public void setNameEn(String nameEn) {
+        this.nameEn = nameEn;
     }
 
     public String getDate() {

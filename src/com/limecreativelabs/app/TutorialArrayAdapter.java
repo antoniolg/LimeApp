@@ -26,16 +26,17 @@ import android.widget.TextView;
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Antonio
- * Date: 19/04/13
- * Time: 21:11
- * To change this template use File | Settings | File Templates.
+ * Array Adapter that manages Android tutorials in Main ListView
  */
 public class TutorialArrayAdapter extends ArrayAdapter<Tutorial> {
 
     public TutorialArrayAdapter(Context context, List<Tutorial> objects) {
         super(context, R.layout.tutorial_list_item, objects);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return getItem(position).getId();
     }
 
     @Override

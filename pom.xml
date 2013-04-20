@@ -78,5 +78,6 @@
                 </configuration>
             </plugin>
         </plugins>
+        <sourceDirectory>${basedir}/src</sourceDirectory>
     </build>
 </project>

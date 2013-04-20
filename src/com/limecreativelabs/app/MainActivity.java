@@ -16,35 +16,38 @@
 
 package com.limecreativelabs.app;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
+import com.limecreativelabs.app.actionbarrefresh.ActionBarRefreshActivity;
+import com.limecreativelabs.app.shared.BaseActivity;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.List;
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity implements AdapterView.OnItemClickListener {
+
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     private ListView mList;
 
     private LoadTask mTask;
 
+    /**
+     * Tutorials file path
+     */
     private static final String TUTORIAL_LIST = "tutorials.json";
 
-    /**
-     * Called when the activity is first created.
-     *
-     * @param savedInstanceState If the activity is being re-initialized after
-     *                           previously being shut down then this Bundle contains the data it most
-     *                           recently supplied in onSaveInstanceState(Bundle). <b>Note: Otherwise it is null.</b>
-     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +62,8 @@ public class MainActivity extends Activity {
             mTask = new LoadTask();
             mTask.execute();
         }
+
+        mList.setOnItemClickListener(this);
     }
 
     @Override
@@ -71,6 +76,23 @@ public class MainActivity extends Activity {
         super.onDestroy();
     }
 
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        Class<?> c = MainActivity.class;
+
+        switch (position) {
+            case 1:
+                c = ActionBarRefreshActivity.class;
+                break;
+        }
+
+        Intent intent = new Intent(this, c);
+        startActivity(intent);
+    }
+
+    /**
+     * Load tutorials from a Json file in Assets
+     */
     class LoadTask extends AsyncTask<Void, Void, List<Tutorial>> {
 
         @Override
@@ -89,7 +111,7 @@ public class MainActivity extends Activity {
         }
 
         /**
-         * Open Json file and parse tutorials into clasess
+         * Open Json file and parse tutorials into classes
          */
         private List<Tutorial> loadTutorials() {
 
@@ -106,11 +128,11 @@ public class MainActivity extends Activity {
                         "UTF-8"));
 
                 Gson gson = new Gson();
-                List<Tutorial> target = gson.fromJson(reader, listType);
 
-                return target;
+                return gson.fromJson(reader, listType);
 
             } catch (Exception e) {
+                Log.w(TAG, "Failed loading tutorials", e);
             }
 
             return null;

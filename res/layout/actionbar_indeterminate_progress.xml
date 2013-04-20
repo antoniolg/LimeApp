@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright (C) 2010 The Android Open Source Project
   ~
@@ -15,9 +14,13 @@
   ~ limitations under the License.
   -->
 
-<resources>
-    <dimen name="textLarge">24sp</dimen>
-    <dimen name="textMedium">16sp</dimen>
-    <dimen name="standardPaddingSpace">16dp</dimen>
-    <dimen name="action_button_min_width">56dp</dimen>
-</resources>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_height="wrap_content"
+             android:layout_width="@dimen/action_button_min_width"
+             android:minWidth="@dimen/action_button_min_width">
+
+    <ProgressBar
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"/>
+</FrameLayout>

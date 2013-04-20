@@ -16,8 +16,6 @@
   -->
 
 <resources>
-    <dimen name="textLarge">24sp</dimen>
-    <dimen name="textMedium">16sp</dimen>
-    <dimen name="standardPaddingSpace">16dp</dimen>
-    <dimen name="action_button_min_width">56dp</dimen>
+    <string name="action_open_tutorial">Open tutorial</string>
+    <string name="action_refresh">Refresh</string>
 </resources>
