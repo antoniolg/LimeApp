@@ -17,18 +17,21 @@
 package com.limecreativelabs.app;
 
 import android.content.Intent;
-import android.content.res.AssetManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.limecreativelabs.app.actionbarrefresh.ActionBarRefreshActivity;
+import com.limecreativelabs.app.actionbarsearch.ActionBarSearchActivity;
 import com.limecreativelabs.app.shared.BaseActivity;
+import com.limecreativelabs.app.shared.Utils;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -47,16 +50,11 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
     private LoadTask mTask;
 
-    /**
-     * Tutorials file path
-     */
-    private static final String TUTORIAL_LIST = "tutorials.json";
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.main);
+        setContentView(R.layout.activity_main);
 
         if (mList == null) {
             mList = (ListView) findViewById(android.R.id.list);
@@ -76,6 +74,27 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
     private void setListAdapter(ArrayList<Tutorial> tutorials) {
         mAdapter = new TutorialArrayAdapter(this, tutorials);
         mList.setAdapter(mAdapter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getSupportMenuInflater().inflate(R.menu.main, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.action_go_web:
+                Intent i = Utils.getOpenWebIntent(getString(R.string.lime_web_url));
+                startActivity(i);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -104,6 +123,8 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
             case 1:
                 c = ActionBarRefreshActivity.class;
                 break;
+            case 2:
+                c = ActionBarSearchActivity.class;
         }
 
         Intent intent = new Intent(this, c);
@@ -141,15 +162,10 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
             try {
 
-                AssetManager assetManager = getAssets();
-                InputStream inputStream;
-                inputStream = assetManager.open(TUTORIAL_LIST);
-
-                JsonReader reader = new JsonReader(new InputStreamReader(inputStream,
-                        "UTF-8"));
+                InputStream is = getResources().openRawResource(R.raw.tutorials);
+                JsonReader reader = new JsonReader(new InputStreamReader(is, "UTF-8"));
 
                 Gson gson = new Gson();
-
                 return gson.fromJson(reader, listType);
 
             } catch (Exception e) {

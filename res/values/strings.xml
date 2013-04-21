@@ -16,8 +16,18 @@
   -->
 
 <resources>
-    <string name="hello">Hello Lime!</string>
-    <string name="app_name">Lime</string>
+    <string name="app_name">LiME Creative Labs</string>
     <string name="action_open_tutorial">Open tutorial</string>
     <string name="action_refresh">Refresh</string>
+    <string name="action_go_web">Go to Website</string>
+    <string name="lime_web_url">http://goo.gl/3ykOD</string>
+    <string name="action_search">Search</string>
+    <string name="search_placeholder">Search...</string>
+    <string name="delete">Delete</string>
+    <string name="items_deleted">item deleted</string>
+    <string name="search_description">Press search action to display the search box and write something.</string>
+    <string name="refresh_description">Press refresh action button to see the indeterminate ProgressBar</string>
+    <string name="actionbar_refresh">Action Bar Refresh</string>
+    <string name="actionbar_search">Action Bar Search</string>
+    <string name="searching">\"Searching for \"</string>
 </resources>

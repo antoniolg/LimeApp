@@ -28,9 +28,7 @@ public class Tutorial implements Parcelable {
 
     private int id;
 
-    private String nameEs;
-
-    private String nameEn;
+    private String name;
 
     private String date;
 
@@ -45,15 +43,11 @@ public class Tutorial implements Parcelable {
     }
 
     public String getName() {
-        return nameEs;
+        return name;
     }
 
-    public void setNameEs(String name) {
-        this.nameEs = name;
-    }
-
-    public void setNameEn(String nameEn) {
-        this.nameEn = nameEn;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDate() {
@@ -82,8 +76,7 @@ public class Tutorial implements Parcelable {
     @Override
     public void writeToParcel(Parcel out, int flags) {
         out.writeInt(id);
-        out.writeString(nameEs);
-        out.writeString(nameEn);
+        out.writeString(name);
         out.writeString(date);
         out.writeString(url);
     }
@@ -101,8 +94,7 @@ public class Tutorial implements Parcelable {
 
     private Tutorial(Parcel in) {
         id = in.readInt();
-        nameEs = in.readString();
-        nameEn = in.readString();
+        name = in.readString();
         date = in.readString();
         url = in.readString();
     }

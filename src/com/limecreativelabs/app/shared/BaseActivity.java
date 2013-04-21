@@ -17,7 +17,6 @@
 package com.limecreativelabs.app.shared;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import com.actionbarsherlock.app.SherlockActivity;
@@ -62,8 +61,7 @@ public class BaseActivity extends SherlockActivity {
 
             case R.id.action_open_tutorial:
                 if (mTutorialUrl != null && !mTutorialUrl.equals("")) {
-                    Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse(mTutorialUrl));
+                    Intent i = Utils.getOpenWebIntent(mTutorialUrl);
                     startActivity(i);
                     return true;
                 }

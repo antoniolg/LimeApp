@@ -16,6 +16,15 @@
   -->
 
 <resources>
-    <string name="action_open_tutorial">Open tutorial</string>
-    <string name="action_refresh">Refresh</string>
+    <string name="action_open_tutorial">Abrir tutorial</string>
+    <string name="action_refresh">Refrescar</string>
+    <string name="action_go_web">Ir a la Web</string>
+    <string name="action_search">Buscar</string>
+    <string name="search_placeholder">Buscar…</string>
+    <string name="delete">Delete</string>
+    <string name="items_deleted">item deleted</string>
+    <string name="search_description">Pulsa la acción de búsqueda para mostrar la caja de búsqueda y escribe algo.
+    </string>
+    <string name="refresh_description">Pulsa la acción de refresco para ver el ProgressBar indeterminado.</string>
+    <string name="searching">Buscando "</string>
 </resources>
