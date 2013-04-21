@@ -28,6 +28,7 @@ import com.actionbarsherlock.view.MenuItem;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
+import com.haarman.listviewanimations.swinginadapters.prepared.SwingBottomInAnimationAdapter;
 import com.limecreativelabs.app.actionbarrefresh.ActionBarRefreshActivity;
 import com.limecreativelabs.app.actionbarsearch.ActionBarSearchActivity;
 import com.limecreativelabs.app.shared.BaseActivity;
@@ -73,7 +74,12 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
     private void setListAdapter(ArrayList<Tutorial> tutorials) {
         mAdapter = new TutorialArrayAdapter(this, tutorials);
-        mList.setAdapter(mAdapter);
+        //mList.setAdapter(mAdapter);
+
+        SwingBottomInAnimationAdapter swingBottomInAnimationAdapter = new SwingBottomInAnimationAdapter(mAdapter);
+        swingBottomInAnimationAdapter.setListView(mList);
+
+        mList.setAdapter(swingBottomInAnimationAdapter);
     }
 
     @Override

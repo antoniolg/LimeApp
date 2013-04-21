@@ -48,6 +48,16 @@
             <version>2.2.3</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.haarman.listviewanimations</groupId>
+            <artifactId>ListViewAnimations</artifactId>
+            <version>1.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.nineoldandroids</groupId>
+            <artifactId>library</artifactId>
+            <version>2.4.0</version>
+        </dependency>
     </dependencies>
 
     <build>
