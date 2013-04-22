@@ -27,4 +27,5 @@
     </string>
     <string name="refresh_description">Pulsa la acción de refresco para ver el ProgressBar indeterminado.</string>
     <string name="searching">Buscando "</string>
+    <string name="action_open_github">Abrir en Github</string>
 </resources>

@@ -61,6 +61,7 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
             mList = (ListView) findViewById(android.R.id.list);
         }
 
+        // If tutorials haven't been loaded yet, it runs the task. Otherwise, tutorials are recovered from instanceState
         if (savedInstanceState == null) {
             mTask = new LoadTask();
             mTask.execute();
@@ -74,11 +75,10 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
     private void setListAdapter(ArrayList<Tutorial> tutorials) {
         mAdapter = new TutorialArrayAdapter(this, tutorials);
-        //mList.setAdapter(mAdapter);
 
+        // CardUI-like animation adapter using listviewanimations library
         SwingBottomInAnimationAdapter swingBottomInAnimationAdapter = new SwingBottomInAnimationAdapter(mAdapter);
         swingBottomInAnimationAdapter.setListView(mList);
-
         mList.setAdapter(swingBottomInAnimationAdapter);
     }
 
@@ -95,9 +95,11 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
         switch (item.getItemId()) {
             case R.id.action_go_web:
-                Intent i = Utils.getOpenWebIntent(getString(R.string.lime_web_url));
-                startActivity(i);
-                break;
+                startActivity(Utils.getOpenWebIntent(getString(R.string.lime_web_url)));
+                return true;
+            case R.id.action_go_github:
+                startActivity(Utils.getOpenWebIntent(getString(R.string.github_url)));
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -121,6 +123,7 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         super.onDestroy();
     }
 
+    @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
         Class<?> c = MainActivity.class;
@@ -133,6 +136,7 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
                 c = ActionBarSearchActivity.class;
         }
 
+        // Open selected tutorial and sends tutorial URL
         Intent intent = new Intent(this, c);
         intent.putExtra(EXTRA_TUTORIAL_URL, mAdapter.getItem(position).getUrl());
         startActivity(intent);

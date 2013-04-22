@@ -30,4 +30,6 @@
     <string name="actionbar_refresh">Action Bar Refresh</string>
     <string name="actionbar_search">Action Bar Search</string>
     <string name="searching">\"Searching for \"</string>
+    <string name="action_open_github">Open at Github</string>
+    <string name="github_url">https://github.com/antoniolg/LimeApp</string>
 </resources>
