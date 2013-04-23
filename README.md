@@ -1,6 +1,11 @@
 LiME Creative Labs
 =================
 
+<a href="https://play.google.com/store/apps/details?id=com.limecreativelabs.app">
+  <img alt="Android app on Google Play"
+       src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
+</a>
+
 LiME is an Android App based on its [homonymous blog][5]. It was created to show live demos of tutorials created on the blog.
 
 This App is basically a visual quick helper to detect tutorials you may be interested in and easily find its implementation. Main Activity contains a link to the [blog][5] and to this page. Each tutorial also has a link to its written version.
@@ -14,14 +19,6 @@ This App will be updated on every new tutorial added. What you can currently fin
 * __Action Bar Search__: A search action lets the user search for something by showing a textbox on Action Bar.
 
 ![Example Image][1]
-
-Find the application at Google Play Store:
-
-<a href="https://play.google.com/store/apps/details?id=com.limecreativelabs.app">
-  <img alt="Android app on Google Play"
-       src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
-</a>
-
 
 Building the project
 -------------------------
