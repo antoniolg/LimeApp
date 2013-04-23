@@ -1,7 +1,7 @@
 LiME Creative Labs
 =================
 
-LiME is an Android App based on its homonym blog. It was created to show live demos of tutoriales created on the blog.
+LiME is an Android App based on its homonymous blog. It was created to show live demos of tutorials created on the blog.
 
 This App is basically a visual quick helper to detect tutorials you may be interested in and easily find its implementation.
 
