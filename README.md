@@ -51,5 +51,5 @@ License
 
 
 
- [1]: https://raw.github.com/antoniolg/LimeApp/blob/master/art/screenshots.png
+ [1]: https://raw.github.com/antoniolg/LimeApp/master/art/screenshots.png
  [2]: https://github.com/nhaarman/ListViewAnimations
