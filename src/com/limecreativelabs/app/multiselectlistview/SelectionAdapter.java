@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2010 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.limecreativelabs.app.multiselectlistview;
 
 import android.view.View;
@@ -17,31 +33,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * String array based Adapter that allows multiple selection in a list. It saves currently selected items
  * and allows to add, remove or get selected items
  *
  * @author Antonio Leiva Gordillo
- *
  */
 public class SelectionAdapter extends ArrayAdapter<String>
         implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, ActionMode.Callback {
 
-    /** Selected items in the list */
+    /**
+     * Selected items in the list
+     */
     private ArrayList<Integer> mSelection = new ArrayList<Integer>();
-
-    private ListView mList;
 
     private SherlockActivity mActivity;
 
     private ActionMode mMode;
 
+    private AdapterView.OnItemClickListener mItemClickListener;
+
+    private ListView mList;
+
     /**
      * Class constructor
-     * @param context Execution context
-     * @param resource list item layout
+     *
+     * @param context            Execution context
+     * @param resource           list item layout
      * @param textViewResourceId TextView identifier
-     * @param objects Array of list elements
+     * @param objects            Array of list elements
+     * @param list               ListView attached to the adapter
      */
     public SelectionAdapter(SherlockActivity context, int resource,
                             int textViewResourceId, List<String> objects, ListView list) {
@@ -50,13 +70,13 @@ public class SelectionAdapter extends ArrayAdapter<String>
         mList = list;
         mList.setAdapter(this);
         mList.setOnItemLongClickListener(this);
-        mList.setOnItemClickListener(this);
 
         mActivity = context;
     }
 
     /**
      * Adds an element in selection and updates the view
+     *
      * @param position Item position
      */
     public void setNewSelection(int position) {
@@ -66,6 +86,7 @@ public class SelectionAdapter extends ArrayAdapter<String>
 
     /**
      * Remove an element from selected items
+     *
      * @param position Item position
      */
     public void removeSelection(int position) {
@@ -83,6 +104,7 @@ public class SelectionAdapter extends ArrayAdapter<String>
 
     /**
      * Get number of selected items
+     *
      * @return Selection count
      */
     public int getSelectionCount() {
@@ -114,6 +136,9 @@ public class SelectionAdapter extends ArrayAdapter<String>
         MenuInflater inflater = mode.getMenuInflater();
         inflater.inflate(R.menu.multiselect_cab, menu);
 
+        mItemClickListener = mList.getOnItemClickListener();
+        mList.setOnItemClickListener(this);
+
         return true;
     }
 
@@ -141,13 +166,15 @@ public class SelectionAdapter extends ArrayAdapter<String>
     @Override
     public void onDestroyActionMode(ActionMode mode) {
         clearSelection();
+
+        mList.setOnItemClickListener(mItemClickListener);
         mMode = null;
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-        if (mMode != null){
+        if (mMode != null) {
             // If element is checked, it is added to selection; if not, it's
             // deleted
             if (isChecked(position)) {
@@ -160,13 +187,15 @@ public class SelectionAdapter extends ArrayAdapter<String>
             return;
         }
 
-        Toast.makeText(getContext(), position + " " + getContext().getString(R.string.clicked), Toast.LENGTH_SHORT).show();
+        if (mItemClickListener != null) {
+            mItemClickListener.onItemClick(parent, view, position, id);
+        }
     }
 
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
-        if (mMode == null){
+        if (mMode == null) {
             mMode = mActivity.startActionMode(this);
             onItemClick(parent, view, position, id);
             return true;
