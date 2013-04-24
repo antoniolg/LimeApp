@@ -17,4 +17,5 @@
 
 <resources>
     <color name="listBackground">#333333</color>
+    <color name="textForeground">#e0e0e0</color>
 </resources>

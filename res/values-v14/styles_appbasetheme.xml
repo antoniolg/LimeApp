@@ -27,8 +27,6 @@
         <item name="android:actionModeBackground">@drawable/cab_background_top_appbasetheme</item>
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_appbasetheme</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Appbasetheme</item>
-
-
     </style>
 
     <style name="ActionBar.Solid.Appbasetheme" parent="@style/Widget.Sherlock.ActionBar.Solid">

@@ -1,5 +1,11 @@
 [
     {
+        id: 3,
+        name: "MultiSelect using ActionBarSherlock",
+        date: "2013/04/25",
+        url: "http://goo.gl/34Mlr"
+    },
+    {
         id: 1,
         name: "ProgressBar in ActionBar when refreshing View",
         date: "2013/04/15",

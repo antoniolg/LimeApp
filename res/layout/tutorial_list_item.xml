@@ -27,6 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/textLarge"
+        android:textColor="@color/textForeground"
         android:id="@+id/title"
         android:paddingBottom="@dimen/standardPaddingSpace"/>
 
@@ -34,5 +35,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/textMedium"
+        android:textColor="@color/textForeground"
         android:id="@+id/date"/>
 </LinearLayout>

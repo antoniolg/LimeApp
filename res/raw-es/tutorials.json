@@ -1,5 +1,11 @@
 [
     {
+        id: 3,
+        name: "Selección multiple en ActionBarSherlock",
+        date: "25/04/2013",
+        url: "http://goo.gl/34Mlr"
+    },
+    {
         id: 1,
         name: "ProgressBar en la ActionBar al refrescar la vista",
         date: "15/04/2012",

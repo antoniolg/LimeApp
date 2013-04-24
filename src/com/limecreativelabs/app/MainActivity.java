@@ -31,6 +31,7 @@ import com.google.gson.stream.JsonReader;
 import com.haarman.listviewanimations.swinginadapters.prepared.SwingBottomInAnimationAdapter;
 import com.limecreativelabs.app.actionbarrefresh.ActionBarRefreshActivity;
 import com.limecreativelabs.app.actionbarsearch.ActionBarSearchActivity;
+import com.limecreativelabs.app.multiselectlistview.MultiSelectActivity;
 import com.limecreativelabs.app.shared.BaseActivity;
 import com.limecreativelabs.app.shared.Utils;
 
@@ -134,6 +135,10 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
                 break;
             case 2:
                 c = ActionBarSearchActivity.class;
+                break;
+            case 3:
+                c = MultiSelectActivity.class;
+                break;
         }
 
         // Open selected tutorial and sends tutorial URL

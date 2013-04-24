@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:text="@string/refresh_description"
         android:textSize="@dimen/textLarge"
+        android:textColor="@color/textForeground"
         android:gravity="center"
         android:padding="@dimen/standardPaddingSpace"
         android:layout_gravity="center"/>

@@ -32,4 +32,6 @@
     <string name="searching">\"Searching for \"</string>
     <string name="action_open_github">Open at Github</string>
     <string name="github_url">https://github.com/antoniolg/LimeApp</string>
+    <string name="multiselect_listview">Multi-Select in ActionBarSherlock</string>
+    <string name="clicked">clicked</string>
 </resources>
