@@ -46,10 +46,16 @@ public class SelectionAdapter extends ArrayAdapter<String>
      */
     private ArrayList<Integer> mSelection = new ArrayList<Integer>();
 
+    /**
+     * We need the context activity to launch the modal action bar
+     */
     private SherlockActivity mActivity;
 
     private ActionMode mMode;
 
+    /**
+     * Saves the original listView click listener
+     */
     private AdapterView.OnItemClickListener mItemClickListener;
 
     private ListView mList;
@@ -68,7 +74,6 @@ public class SelectionAdapter extends ArrayAdapter<String>
         super(context, resource, textViewResourceId, objects);
 
         mList = list;
-        mList.setAdapter(this);
         mList.setOnItemLongClickListener(this);
 
         mActivity = context;
@@ -136,6 +141,7 @@ public class SelectionAdapter extends ArrayAdapter<String>
         MenuInflater inflater = mode.getMenuInflater();
         inflater.inflate(R.menu.multiselect_cab, menu);
 
+        // When CAB is created, original listener is saved, and this adapters begins to handle the action
         mItemClickListener = mList.getOnItemClickListener();
         mList.setOnItemClickListener(this);
 
@@ -153,7 +159,7 @@ public class SelectionAdapter extends ArrayAdapter<String>
         switch (item.getItemId()) {
             case R.id.action_discard:
                 Toast.makeText(getContext(),
-                        getSelectionCount() + " items deleted",
+                        getSelectionCount() + " " + mActivity.getString(R.string.items_deleted),
                         Toast.LENGTH_LONG).show();
                 clearSelection();
                 mode.finish();
@@ -183,10 +189,11 @@ public class SelectionAdapter extends ArrayAdapter<String>
                 setNewSelection(position);
             }
 
-            mMode.setTitle(getSelectionCount() + " items selected");
+            mMode.setTitle(getSelectionCount() + " " + mActivity.getString(R.string.items_selected));
             return;
         }
 
+        // If CAB not active, we use original click listener
         if (mItemClickListener != null) {
             mItemClickListener.onItemClick(parent, view, position, id);
         }
@@ -195,6 +202,7 @@ public class SelectionAdapter extends ArrayAdapter<String>
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
+        // CAB activation. It launches onItemClick to mark the item as selected
         if (mMode == null) {
             mMode = mActivity.startActionMode(this);
             onItemClick(parent, view, position, id);

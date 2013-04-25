@@ -24,7 +24,7 @@
     <string name="action_search">Search</string>
     <string name="search_placeholder">Search...</string>
     <string name="delete">Delete</string>
-    <string name="items_deleted">item deleted</string>
+    <string name="items_deleted"> items deleted</string>
     <string name="search_description">Press search action to display the search box and write something.</string>
     <string name="refresh_description">Press refresh action button to see the indeterminate ProgressBar</string>
     <string name="actionbar_refresh">Action Bar Refresh</string>
@@ -34,4 +34,5 @@
     <string name="github_url">https://github.com/antoniolg/LimeApp</string>
     <string name="multiselect_listview">Multi-Select in ActionBarSherlock</string>
     <string name="clicked">clicked</string>
+    <string name="items_selected"> items selected</string>
 </resources>
