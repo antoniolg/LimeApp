@@ -18,6 +18,8 @@ This App will be updated on every new tutorial added. What you can currently fin
 
 * __Action Bar Search__: A search action lets the user search for something by showing a textbox on Action Bar.
 
+* __Multiple selection in ListView using ActionBarSherlock__: Implementation of multiple selection using a SelectionAdapter.
+
 ![Example Image][1]
 
 Building the project
