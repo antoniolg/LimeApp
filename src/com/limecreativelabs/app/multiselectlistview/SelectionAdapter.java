@@ -16,11 +16,11 @@
 
 package com.limecreativelabs.app.multiselectlistview;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.Toast;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.ActionMode;
@@ -58,7 +58,7 @@ public class SelectionAdapter extends ArrayAdapter<String>
      */
     private AdapterView.OnItemClickListener mItemClickListener;
 
-    private ListView mList;
+    private AdapterView mView;
 
     /**
      * Class constructor
@@ -69,14 +69,14 @@ public class SelectionAdapter extends ArrayAdapter<String>
      * @param objects            Array of list elements
      * @param list               ListView attached to the adapter
      */
-    public SelectionAdapter(SherlockActivity context, int resource,
-                            int textViewResourceId, List<String> objects, ListView list) {
+    public SelectionAdapter(Context context, int resource,
+                            int textViewResourceId, List<String> objects, AdapterView list) {
         super(context, resource, textViewResourceId, objects);
 
-        mList = list;
-        mList.setOnItemLongClickListener(this);
+        mView = list;
+        mView.setOnItemLongClickListener(this);
 
-        mActivity = context;
+        mActivity = (SherlockActivity) context;
     }
 
     /**
@@ -142,8 +142,8 @@ public class SelectionAdapter extends ArrayAdapter<String>
         inflater.inflate(R.menu.multiselect_cab, menu);
 
         // When CAB is created, original listener is saved, and this adapters begins to handle the action
-        mItemClickListener = mList.getOnItemClickListener();
-        mList.setOnItemClickListener(this);
+        mItemClickListener = mView.getOnItemClickListener();
+        mView.setOnItemClickListener(this);
 
         return true;
     }
@@ -173,7 +173,7 @@ public class SelectionAdapter extends ArrayAdapter<String>
     public void onDestroyActionMode(ActionMode mode) {
         clearSelection();
 
-        mList.setOnItemClickListener(mItemClickListener);
+        mView.setOnItemClickListener(mItemClickListener);
         mMode = null;
     }
 

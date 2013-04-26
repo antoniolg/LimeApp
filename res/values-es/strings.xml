@@ -22,7 +22,7 @@
     <string name="action_search">Buscar</string>
     <string name="search_placeholder">Buscar…</string>
     <string name="delete">Delete</string>
-    <string name="items_deleted"> elementos borrados</string>
+    <string name="items_deleted"> elementos seleccionados para borrar</string>
     <string name="search_description">Pulsa la acción de búsqueda para mostrar la caja de búsqueda y escribe algo.
     </string>
     <string name="refresh_description">Pulsa la acción de refresco para ver el ProgressBar indeterminado.</string>
