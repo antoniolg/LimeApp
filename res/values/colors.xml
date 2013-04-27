@@ -18,4 +18,6 @@
 <resources>
     <color name="listBackground">#333333</color>
     <color name="textForeground">#e0e0e0</color>
+    <color name="holo_dark_green">#669900</color>
+    <color name="holo_dark_red">#CC0000</color>
 </resources>

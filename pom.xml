@@ -20,14 +20,44 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.limecreativelabs.app</groupId>
     <artifactId>Lime</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.3</version>
     <packaging>apk</packaging>
-    <name>Lime</name>
+
+    <name>LiME Creative Labs</name>
+    <description>Test tutorials from LiME blog</description>
+    <url>https://github.com/antoniolg/LimeApp</url>
+    <inceptionYear>2013</inceptionYear>
 
     <properties>
         <platform.version>4.1.1.4
         </platform.version>
     </properties>
+
+    <developers>
+        <developer>
+            <name>Antonio Leiva</name>
+            <email>antonioleivag@gmail.com</email>
+            <id>antoniolg</id>
+            <url>http://github.com/antoniolg</url>
+            <timezone>0</timezone>
+            <roles>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <organization>
+        <name>LiME Creative Labs</name>
+        <url>http://www.limecreativelabs.com</url>
+    </organization>
+
+    <licenses>
+        <license>
+            <name>Apache License Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <dependencies>
         <dependency>

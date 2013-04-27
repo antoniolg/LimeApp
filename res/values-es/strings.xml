@@ -22,7 +22,7 @@
     <string name="action_search">Buscar</string>
     <string name="search_placeholder">Buscar…</string>
     <string name="delete">Delete</string>
-    <string name="items_deleted"> elementos seleccionados para borrar</string>
+    <string name="items_deleted">elementos seleccionados para borrar</string>
     <string name="search_description">Pulsa la acción de búsqueda para mostrar la caja de búsqueda y escribe algo.
     </string>
     <string name="refresh_description">Pulsa la acción de refresco para ver el ProgressBar indeterminado.</string>
@@ -30,5 +30,11 @@
     <string name="action_open_github">Abrir en Github</string>
     <string name="multiselect_listview">Selección múltiple en ActionBarSherlock</string>
     <string name="clicked">pulsado</string>
-    <string name="items_selected"> elementos seleccionados</string>
+    <string name="items_selected">elementos seleccionados</string>
+    <string name="live_test_description">Activa o desactiva las conexiones de tu dispositivo para ver los cambios de
+        estado (las notificaciones no son inmediatas, por favor espera)
+    </string>
+    <string name="enabled">CONEXIÓN ACTIVA</string>
+    <string name="disabled">CONEXIÓN INACTIVA</string>
+    <string name="live_test_connection">Comprobación Conexión en Vivo</string>
 </resources>

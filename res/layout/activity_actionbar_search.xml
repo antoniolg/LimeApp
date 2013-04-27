@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/search_description"
-        android:textSize="@dimen/textLarge"
+        android:textSize="@dimen/textMedium"
         android:textColor="@color/textForeground"
         android:gravity="center"
         android:padding="@dimen/standardPaddingSpace"

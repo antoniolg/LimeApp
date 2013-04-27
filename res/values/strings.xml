@@ -24,7 +24,7 @@
     <string name="action_search">Search</string>
     <string name="search_placeholder">Search...</string>
     <string name="delete">Delete</string>
-    <string name="items_deleted"> items selected to delete</string>
+    <string name="items_deleted">items selected to delete</string>
     <string name="search_description">Press search action to display the search box and write something.</string>
     <string name="refresh_description">Press refresh action button to see the indeterminate ProgressBar</string>
     <string name="actionbar_refresh">Action Bar Refresh</string>
@@ -34,5 +34,11 @@
     <string name="github_url">https://github.com/antoniolg/LimeApp</string>
     <string name="multiselect_listview">Multi-Select in ActionBarSherlock</string>
     <string name="clicked">clicked</string>
-    <string name="items_selected"> items selected</string>
+    <string name="items_selected">items selected</string>
+    <string name="live_test_description">Enable or disable your device connections to display connectivity changes
+        (notifications are not immediate, please wait)
+    </string>
+    <string name="enabled">CONNECTION ENABLED</string>
+    <string name="disabled">CONNECTION DISABLED</string>
+    <string name="live_test_connection">Live Test Connection</string>
 </resources>
