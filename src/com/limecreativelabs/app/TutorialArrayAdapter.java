@@ -28,9 +28,9 @@ import java.util.ArrayList;
 /**
  * Array Adapter that manages Android tutorials in Main ListView
  */
-public class TutorialArrayAdapter extends ArrayAdapter<Tutorial> {
+class TutorialArrayAdapter extends ArrayAdapter<Tutorial> {
 
-    private ArrayList<Tutorial> mTutorials;
+    private final ArrayList<Tutorial> mTutorials;
 
     public TutorialArrayAdapter(Context context, ArrayList<Tutorial> objects) {
         super(context, R.layout.tutorial_list_item, objects);

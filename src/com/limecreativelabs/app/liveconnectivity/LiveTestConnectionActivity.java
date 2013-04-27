@@ -18,6 +18,7 @@ package com.limecreativelabs.app.liveconnectivity;
 
 import android.os.Bundle;
 import android.widget.TextView;
+import com.actionbarsherlock.view.Menu;
 import com.limecreativelabs.app.R;
 import com.limecreativelabs.app.shared.BaseActivity;
 
@@ -37,6 +38,13 @@ public class LiveTestConnectionActivity extends BaseActivity implements Connecti
     protected void onStart() {
         super.onStart();
         LiveConnectivityManager.singleton(this).addObserver(this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getSupportMenuInflater().inflate(R.menu.tutorial_standard, menu);
+        return true;
     }
 
     //@Override

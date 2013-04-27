@@ -22,10 +22,10 @@ import android.util.Log;
 /**
  * A sample class used to simulate a loading task that takes 3 seconds to be finished.
  */
-public class MockRefreshTask extends AsyncTask<Void, Void, Void> {
+class MockRefreshTask extends AsyncTask<Void, Void, Void> {
 
     private static final String TAG = MockRefreshTask.class.getSimpleName();
-    private IRefresh refreshImpl;
+    private final IRefresh refreshImpl;
 
     public MockRefreshTask(IRefresh ref) {
         refreshImpl = ref;

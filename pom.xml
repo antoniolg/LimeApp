@@ -20,7 +20,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.limecreativelabs.app</groupId>
     <artifactId>Lime</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4-SNAPSHOT</version>
     <packaging>apk</packaging>
 
     <name>LiME Creative Labs</name>

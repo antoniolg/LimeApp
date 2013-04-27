@@ -38,7 +38,7 @@ import java.util.List;
  *
  * @author Antonio Leiva Gordillo
  */
-public class SelectionAdapter extends ArrayAdapter<String>
+class SelectionAdapter extends ArrayAdapter<String>
         implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, ActionMode.Callback {
 
     /**
@@ -49,7 +49,7 @@ public class SelectionAdapter extends ArrayAdapter<String>
     /**
      * We need the context activity to launch the modal action bar
      */
-    private SherlockActivity mActivity;
+    private final SherlockActivity mActivity;
 
     private ActionMode mMode;
 
@@ -58,7 +58,7 @@ public class SelectionAdapter extends ArrayAdapter<String>
      */
     private AdapterView.OnItemClickListener mItemClickListener;
 
-    private AdapterView mView;
+    private final AdapterView mView;
 
     /**
      * Class constructor
@@ -84,7 +84,7 @@ public class SelectionAdapter extends ArrayAdapter<String>
      *
      * @param position Item position
      */
-    public void setNewSelection(int position) {
+    void setNewSelection(int position) {
         mSelection.add(position);
         notifyDataSetChanged();
     }
@@ -94,7 +94,7 @@ public class SelectionAdapter extends ArrayAdapter<String>
      *
      * @param position Item position
      */
-    public void removeSelection(int position) {
+    void removeSelection(int position) {
         mSelection.remove(Integer.valueOf(position));
         notifyDataSetChanged();
     }
@@ -102,7 +102,7 @@ public class SelectionAdapter extends ArrayAdapter<String>
     /**
      * Clear current selection
      */
-    public void clearSelection() {
+    void clearSelection() {
         mSelection = new ArrayList<Integer>();
         notifyDataSetChanged();
     }
@@ -112,7 +112,7 @@ public class SelectionAdapter extends ArrayAdapter<String>
      *
      * @return Selection count
      */
-    public int getSelectionCount() {
+    int getSelectionCount() {
         return mSelection.size();
     }
 
@@ -131,7 +131,7 @@ public class SelectionAdapter extends ArrayAdapter<String>
         return v;
     }
 
-    public boolean isChecked(int position) {
+    boolean isChecked(int position) {
         return mSelection.contains(position);
     }
 

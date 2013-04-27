@@ -29,7 +29,7 @@ import com.limecreativelabs.app.R;
  */
 public class BaseActivity extends SherlockActivity {
 
-    public static final String EXTRA_TUTORIAL_URL = "BaseActivity:tutorialUrl";
+    protected static final String EXTRA_TUTORIAL_URL = "BaseActivity:tutorialUrl";
 
     private String mTutorialUrl;
 
