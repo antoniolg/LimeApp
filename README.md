@@ -25,7 +25,7 @@ This App will be updated on every new tutorial added. What you can currently fin
 Building the project
 -------------------------
 
-It is recommended to use maven to compile this project. Download the project and import to your IDE as a maven project. You will need to add [listviewanimations][2] jar to you local maven repository.
+It is recommended to use maven to compile this project. Download the project and import to your IDE as a maven project. You will need to add [listviewanimations][2] jar to you local maven repository. If you are on a Unix shell, just run the provided `installDependencies.sh` script.
 
 If you want to use it as a regular Android project, go to the dependencies section and download those projects as libraries or jars to the build path.
 
