@@ -41,4 +41,5 @@
     <string name="enabled">CONNECTION ENABLED</string>
     <string name="disabled">CONNECTION DISABLED</string>
     <string name="live_test_connection">Live Test Connection</string>
+    <string name="drawer_layout">Drawer Layout</string>
 </resources>

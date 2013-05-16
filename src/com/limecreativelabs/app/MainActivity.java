@@ -31,6 +31,7 @@ import com.google.gson.stream.JsonReader;
 import com.haarman.listviewanimations.swinginadapters.prepared.SwingBottomInAnimationAdapter;
 import com.limecreativelabs.app.actionbarrefresh.ActionBarRefreshActivity;
 import com.limecreativelabs.app.actionbarsearch.ActionBarSearchActivity;
+import com.limecreativelabs.app.drawerlayout.DrawerLayoutActivity;
 import com.limecreativelabs.app.liveconnectivity.LiveTestConnectionActivity;
 import com.limecreativelabs.app.multiselectlistview.MultiSelectActivity;
 import com.limecreativelabs.app.shared.BaseActivity;
@@ -142,6 +143,10 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
                 break;
             case 4:
                 c = LiveTestConnectionActivity.class;
+                break;
+
+            case 5:
+                c = DrawerLayoutActivity.class;
                 break;
         }
 

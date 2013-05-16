@@ -37,4 +37,5 @@
     <string name="enabled">CONEXIÓN ACTIVA</string>
     <string name="disabled">CONEXIÓN INACTIVA</string>
     <string name="live_test_connection">Comprobación Conexión en Vivo</string>
+    <string name="drawer_layout">Drawer Layout</string>
 </resources>
