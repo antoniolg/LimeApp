@@ -38,4 +38,13 @@
     <string name="disabled">CONEXIÓN INACTIVA</string>
     <string name="live_test_connection">Comprobación Conexión en Vivo</string>
     <string name="drawer_layout">Drawer Layout</string>
+    <string name="drawer_layout_description">El Drawer Layout se puede abrir pulsando el boton de Home o
+        arrastrando desde el borde izquierdo de la pantalla.
+    </string>
+    <string name="pressed">Pressed</string>
+    <string-array name="drawer">
+        <item>Opción 1</item>
+        <item>Opción 2</item>
+        <item>Opción 3</item>
+    </string-array>
 </resources>

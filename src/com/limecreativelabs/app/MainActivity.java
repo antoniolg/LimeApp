@@ -111,7 +111,9 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
     @Override
     protected void onSaveInstanceState(Bundle outState) {
 
-        outState.putParcelableArrayList(EXTRA_TUTORIALS, mAdapter.getTutorials());
+        if (mAdapter != null) {
+            outState.putParcelableArrayList(EXTRA_TUTORIALS, mAdapter.getTutorials());
+        }
 
         super.onSaveInstanceState(outState);
     }

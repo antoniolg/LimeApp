@@ -42,4 +42,13 @@
     <string name="disabled">CONNECTION DISABLED</string>
     <string name="live_test_connection">Live Test Connection</string>
     <string name="drawer_layout">Drawer Layout</string>
+    <string name="drawer_layout_description">Drawer Layout may be opened by pressing home button or swiping from left
+        edge.
+    </string>
+    <string name="pressed">Pressed</string>
+    <string-array name="drawer">
+        <item>Option 1</item>
+        <item>Option 2</item>
+        <item>Option 3</item>
+    </string-array>
 </resources>

@@ -2,12 +2,10 @@ package com.limecreativelabs.app.drawerlayout;
 
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.*;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 import com.limecreativelabs.app.R;
 import com.limecreativelabs.app.shared.BaseActivity;
 
@@ -15,7 +13,6 @@ public class DrawerLayoutActivity extends BaseActivity implements AdapterView.On
 
     private DrawerLayout mDrawer;
     private ListView mDrawerOptions;
-    private static final String[] values = {"Drawer 1", "Drawer 2", "Drawer 3"};
 
     /**
      * Called when the activity is first created.
@@ -29,9 +26,15 @@ public class DrawerLayoutActivity extends BaseActivity implements AdapterView.On
         mDrawerOptions = (ListView) findViewById(R.id.left_drawer);
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-
-        mDrawerOptions.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values));
+        mDrawerOptions.setAdapter(ArrayAdapter.createFromResource(this, R.array.drawer, android.R.layout.simple_list_item_1));
         mDrawerOptions.setOnItemClickListener(this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getSupportMenuInflater().inflate(R.menu.tutorial_standard, menu);
+        return true;
     }
 
     @Override
@@ -51,7 +54,8 @@ public class DrawerLayoutActivity extends BaseActivity implements AdapterView.On
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Toast.makeText(this, "Pulsado " + values[i], Toast.LENGTH_SHORT).show();
+        TextView tv = (TextView) view;
+        Toast.makeText(this, getString(R.string.pressed) + " " + tv.getText(), Toast.LENGTH_SHORT).show();
         mDrawer.closeDrawers();
     }
 }
