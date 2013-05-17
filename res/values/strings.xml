@@ -46,6 +46,8 @@
         edge.
     </string>
     <string name="pressed">Pressed</string>
+    <string name="drawer_open">Drawer Open</string>
+    <string name="drawer_close">Drawer Close</string>
     <string-array name="drawer">
         <item>Option 1</item>
         <item>Option 2</item>
