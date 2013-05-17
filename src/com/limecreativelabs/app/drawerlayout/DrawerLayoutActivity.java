@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2010 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.limecreativelabs.app.drawerlayout;
 
 import android.content.res.Configuration;
@@ -7,9 +23,9 @@ import android.view.View;
 import android.widget.*;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
-import com.limecreativelabs.abssupport.ActionBarDrawerToggle;
 import com.limecreativelabs.app.R;
 import com.limecreativelabs.app.shared.BaseActivity;
+import com.limecreativelabs.sherlocksupport.ActionBarDrawerToggle;
 
 public class DrawerLayoutActivity extends BaseActivity implements AdapterView.OnItemClickListener {
 
@@ -24,7 +40,7 @@ public class DrawerLayoutActivity extends BaseActivity implements AdapterView.On
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawerlayout);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mDrawerOptions = (ListView) findViewById(R.id.left_drawer);
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -32,20 +48,19 @@ public class DrawerLayoutActivity extends BaseActivity implements AdapterView.On
         mDrawerOptions.setAdapter(ArrayAdapter.createFromResource(this, R.array.drawer, android.R.layout.simple_list_item_1));
         mDrawerOptions.setOnItemClickListener(this);
 
-        mToggle = new ActionBarDrawerToggle(this, mDrawer, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close){
+        mToggle = new ActionBarDrawerToggle(this, mDrawer, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close) {
             public void onDrawerClosed(View view) {
-                getActionBar().setTitle(R.string.drawer_layout);
+                getSupportActionBar().setTitle(R.string.drawer_layout);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
 
             public void onDrawerOpened(View drawerView) {
-                getActionBar().setTitle(R.string.drawer_open);
+                getSupportActionBar().setTitle(R.string.drawer_open);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };
 
         mToggle.setDrawerIndicatorEnabled(true);
-
         mDrawer.setDrawerListener(mToggle);
     }
 
@@ -65,18 +80,11 @@ public class DrawerLayoutActivity extends BaseActivity implements AdapterView.On
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
 
-        switch (item.getItemId()){
-            case android.R.id.home:
-                if (mDrawer.isDrawerOpen(mDrawerOptions)){
-                    mDrawer.closeDrawers();
-                }else{
-                    mDrawer.openDrawer(mDrawerOptions);
-                }
-                return true;
+        // I think there's a bug in mToggle.onOptionsItemSelected, because it always returns false.
+        // The item id testing is a fix.
+        if (mToggle.onOptionsItemSelected(item) || item.getItemId() == android.R.id.home) {
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
