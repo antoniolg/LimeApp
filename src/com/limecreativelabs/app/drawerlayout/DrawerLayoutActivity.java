@@ -25,13 +25,13 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.limecreativelabs.app.R;
 import com.limecreativelabs.app.shared.BaseActivity;
-import com.limecreativelabs.sherlocksupport.ActionBarDrawerToggle;
+import com.limecreativelabs.sherlocksupport.ActionBarDrawerToggleCompat;
 
 public class DrawerLayoutActivity extends BaseActivity implements AdapterView.OnItemClickListener {
 
     private DrawerLayout mDrawer;
     private ListView mDrawerOptions;
-    private ActionBarDrawerToggle mToggle;
+    private ActionBarDrawerToggleCompat mToggle;
 
     /**
      * Called when the activity is first created.
@@ -48,7 +48,7 @@ public class DrawerLayoutActivity extends BaseActivity implements AdapterView.On
         mDrawerOptions.setAdapter(ArrayAdapter.createFromResource(this, R.array.drawer, android.R.layout.simple_list_item_1));
         mDrawerOptions.setOnItemClickListener(this);
 
-        mToggle = new ActionBarDrawerToggle(this, mDrawer, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close) {
+        mToggle = new ActionBarDrawerToggleCompat(this, mDrawer, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close) {
             public void onDrawerClosed(View view) {
                 getSupportActionBar().setTitle(R.string.drawer_layout);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()

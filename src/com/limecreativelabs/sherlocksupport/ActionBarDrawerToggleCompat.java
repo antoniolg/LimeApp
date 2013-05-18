@@ -14,16 +14,30 @@
  * limitations under the License.
  */
 
+package com.limecreativelabs.sherlocksupport;/*
+ * Copyright (C) 2010 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-package com.limecreativelabs.sherlocksupport;
 
+import android.app.Activity;
 import android.content.res.Configuration;
 import android.graphics.*;
 import android.graphics.drawable.Drawable;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
-import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.MenuItem;
 
 /**
@@ -48,32 +62,32 @@ import com.actionbarsherlock.view.MenuItem;
  * {@link android.support.v4.widget.DrawerLayout.DrawerListener}, or if you are already providing your own listener,
  * call through to each of the listener methods from your own.</p>
  */
-public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
+public class ActionBarDrawerToggleCompat implements DrawerLayout.DrawerListener {
 
     private interface ActionBarDrawerToggleImpl {
-        Drawable getThemeUpIndicator(SherlockActivity activity);
+        Drawable getThemeUpIndicator(Activity activity);
 
-        Object setActionBarUpIndicator(Object info, SherlockActivity activity,
+        Object setActionBarUpIndicator(Object info, Activity activity,
                                        Drawable themeImage, int contentDescRes);
 
-        Object setActionBarDescription(Object info, SherlockActivity activity, int contentDescRes);
+        Object setActionBarDescription(Object info, Activity activity, int contentDescRes);
     }
 
     private static class ActionBarDrawerToggleImplBase implements ActionBarDrawerToggleImpl {
         @Override
-        public Drawable getThemeUpIndicator(SherlockActivity activity) {
+        public Drawable getThemeUpIndicator(Activity activity) {
             return null;
         }
 
         @Override
-        public Object setActionBarUpIndicator(Object info, SherlockActivity activity,
+        public Object setActionBarUpIndicator(Object info, Activity activity,
                                               Drawable themeImage, int contentDescRes) {
             // No action bar to set.
             return info;
         }
 
         @Override
-        public Object setActionBarDescription(Object info, SherlockActivity activity, int contentDescRes) {
+        public Object setActionBarDescription(Object info, Activity activity, int contentDescRes) {
             // No action bar to set
             return info;
         }
@@ -81,19 +95,19 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
 
     private static class ActionBarDrawerToggleImplSherlock implements ActionBarDrawerToggleImpl {
         @Override
-        public Drawable getThemeUpIndicator(SherlockActivity activity) {
+        public Drawable getThemeUpIndicator(Activity activity) {
             return ActionBarDrawerToggleSherlock.getThemeUpIndicator(activity);
         }
 
         @Override
-        public Object setActionBarUpIndicator(Object info, SherlockActivity activity,
+        public Object setActionBarUpIndicator(Object info, Activity activity,
                                               Drawable themeImage, int contentDescRes) {
             return ActionBarDrawerToggleSherlock.setActionBarUpIndicator(info, activity,
                     themeImage, contentDescRes);
         }
 
         @Override
-        public Object setActionBarDescription(Object info, SherlockActivity activity, int contentDescRes) {
+        public Object setActionBarDescription(Object info, Activity activity, int contentDescRes) {
             return ActionBarDrawerToggleSherlock.setActionBarDescription(info, activity,
                     contentDescRes);
         }
@@ -104,7 +118,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     // android.R.id.home as defined by public API in v11
     private static final int ID_HOME = 0x0102002c;
 
-    private final SherlockActivity mActivity;
+    private final Activity mActivity;
     private final DrawerLayout mDrawerLayout;
     private boolean mDrawerIndicatorEnabled = true;
 
@@ -136,8 +150,8 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
      * @param closeDrawerContentDescRes A String resource to describe the "close drawer" action
      *                                  for accessibility
      */
-    public ActionBarDrawerToggle(SherlockActivity activity, DrawerLayout drawerLayout,
-                                 int drawerImageRes, int openDrawerContentDescRes, int closeDrawerContentDescRes) {
+    public ActionBarDrawerToggleCompat(Activity activity, DrawerLayout drawerLayout,
+                                       int drawerImageRes, int openDrawerContentDescRes, int closeDrawerContentDescRes) {
         mActivity = activity;
         mDrawerLayout = drawerLayout;
         mDrawerImageResource = drawerImageRes;

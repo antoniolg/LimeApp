@@ -14,8 +14,22 @@
  * limitations under the License.
  */
 
+package com.limecreativelabs.sherlocksupport;/*
+ * Copyright (C) 2010 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-package com.limecreativelabs.sherlocksupport;
 
 import android.app.Activity;
 import android.content.res.TypedArray;
@@ -26,7 +40,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.actionbarsherlock.R;
 import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockActivity;
 
 import java.lang.reflect.Method;
 
@@ -45,21 +58,13 @@ class ActionBarDrawerToggleSherlock {
             R.attr.homeAsUpIndicator
     };
 
-    public static Object setActionBarUpIndicator(Object info, SherlockActivity activity,
+    public static Object setActionBarUpIndicator(Object info, Activity activity,
                                                  Drawable drawable, int contentDescRes) {
         if (info == null) {
             info = new SetIndicatorInfo(activity);
         }
         final SetIndicatorInfo sii = (SetIndicatorInfo) info;
-        if (sii.setHomeAsUpIndicator != null) {
-            try {
-                final ActionBar actionBar = activity.getSupportActionBar();
-                sii.setHomeAsUpIndicator.invoke(actionBar, drawable);
-                sii.setHomeActionContentDescription.invoke(actionBar, contentDescRes);
-            } catch (Exception e) {
-                Log.w(TAG, "Couldn't set home-as-up indicator via JB-MR2 API", e);
-            }
-        } else if (sii.upIndicatorView != null) {
+        if (sii.upIndicatorView != null) {
             sii.upIndicatorView.setImageDrawable(drawable);
         } else {
             Log.w(TAG, "Couldn't set home-as-up indicator");
@@ -67,7 +72,7 @@ class ActionBarDrawerToggleSherlock {
         return info;
     }
 
-    public static Object setActionBarDescription(Object info, SherlockActivity activity,
+    public static Object setActionBarDescription(Object info, Activity activity,
                                                  int contentDescRes) {
         if (info == null) {
             info = new SetIndicatorInfo(activity);
@@ -75,8 +80,9 @@ class ActionBarDrawerToggleSherlock {
         final SetIndicatorInfo sii = (SetIndicatorInfo) info;
         if (sii.setHomeAsUpIndicator != null) {
             try {
-                final ActionBar actionBar = activity.getSupportActionBar();
-                sii.setHomeActionContentDescription.invoke(actionBar, contentDescRes);
+                // TODO With ABS it will never be executed. Clean code.
+                //final ActionBar actionBar = activity.getSupportActionBar();
+                //sii.setHomeActionContentDescription.invoke(actionBar, contentDescRes);
             } catch (Exception e) {
                 Log.w(TAG, "Couldn't set content description via JB-MR2 API", e);
             }
@@ -103,7 +109,7 @@ class ActionBarDrawerToggleSherlock {
         public Method setHomeActionContentDescription;
         public ImageView upIndicatorView;
 
-        SetIndicatorInfo(SherlockActivity activity) {
+        SetIndicatorInfo(Activity activity) {
             try {
                 setHomeAsUpIndicator = ActionBar.class.getDeclaredMethod("setHomeAsUpIndicator",
                         Drawable.class);
