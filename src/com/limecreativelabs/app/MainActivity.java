@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 The Android Open Source Project
+ * Copyright (C) 2013 Antonio Leiva
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,6 +36,7 @@ import com.limecreativelabs.app.liveconnectivity.LiveTestConnectionActivity;
 import com.limecreativelabs.app.multiselectlistview.MultiSelectActivity;
 import com.limecreativelabs.app.shared.BaseActivity;
 import com.limecreativelabs.app.shared.Utils;
+import com.limecreativelabs.app.slidingpane.SlidingPaneActivity;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -149,6 +150,9 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
 
             case 5:
                 c = DrawerLayoutActivity.class;
+                break;
+            case 6:
+                c = SlidingPaneActivity.class;
                 break;
         }
 

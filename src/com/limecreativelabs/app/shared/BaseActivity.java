@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 The Android Open Source Project
+ * Copyright (C) 2013 Antonio Leiva
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@ package com.limecreativelabs.app.shared;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
 import com.limecreativelabs.app.MainActivity;
 import com.limecreativelabs.app.R;
@@ -27,7 +27,7 @@ import com.limecreativelabs.app.R;
 /**
  * Implements common usage in every Activity in the App
  */
-public class BaseActivity extends SherlockActivity {
+public class BaseActivity extends SherlockFragmentActivity {
 
     protected static final String EXTRA_TUTORIAL_URL = "BaseActivity:tutorialUrl";
 

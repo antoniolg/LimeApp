@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!--
   ~ Copyright (C) 2013 Antonio Leiva
   ~
@@ -15,9 +16,8 @@
   ~ limitations under the License.
   -->
 
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item android:drawable="@color/holo_dark_green" android:state_pressed="true"/>
-    <item android:drawable="@color/listBackground"/>
-
-</selector>
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+           android:id="@+id/animalImage"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:scaleType="centerCrop"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (C) 2010 The Android Open Source Project
+  ~ Copyright (C) 2013 Antonio Leiva
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -70,12 +70,20 @@
                 android:value=".MainActivity"/>
         </activity>
         <activity
-                android:name=".drawerlayout.DrawerLayoutActivity"
-                android:label="@string/drawer_layout"
-                android:parentActivityName=".MainActivity">
+            android:name=".drawerlayout.DrawerLayoutActivity"
+            android:label="@string/drawer_layout"
+            android:parentActivityName=".MainActivity">
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".MainActivity"/>
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <activity
+            android:name=".slidingpane.SlidingPaneActivity"
+            android:label="@string/sliding_layout"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
         </activity>
 
         <receiver android:name="com.limecreativelabs.app.liveconnectivity.ConnectivityReceiver">

@@ -15,9 +15,24 @@
   ~ limitations under the License.
   -->
 
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item android:drawable="@color/holo_dark_green" android:state_pressed="true"/>
-    <item android:drawable="@color/listBackground"/>
-
-</selector>
+<resources>
+    <string-array name="drawer">
+        <item>Option 1</item>
+        <item>Option 2</item>
+        <item>Option 3</item>
+    </string-array>
+    <string-array name="animals">
+        <item>Cat</item>
+        <item>Dog</item>
+        <item>Rabbit</item>
+        <item>Elephant</item>
+        <item>Deer</item>
+    </string-array>
+    <array name="animalImages">
+        <item>@drawable/cat</item>
+        <item>@drawable/dog</item>
+        <item>@drawable/rabbit</item>
+        <item>@drawable/elephant</item>
+        <item>@drawable/deer</item>
+    </array>
+</resources>

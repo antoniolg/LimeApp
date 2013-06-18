@@ -14,7 +14,13 @@ LiME Creative Labs blog is written in Spanish, but is easy to understand using a
 
 This App will be updated on every new tutorial added. What you can currently find:
 
+* __Sliding Pane Layout__: An example of SlidingPaneLayout implementation, another new layout from Support Library r13.
+
+* __Drawer Layout__: An example of Drawer Layout implementation, optimized to be used with ActionBarSherlock.
+
 * __Action Bar Refresh__: when the user clicks the Refresh Button, an indeterminate <tt>ProgressBar</tt> is shown until the operation is performed.
+
+* __Test connectivity status live__: A broadcast receiver intercepts connectivity changes and updates the UI.
 
 * __Action Bar Search__: A search action lets the user search for something by showing a textbox on Action Bar.
 
