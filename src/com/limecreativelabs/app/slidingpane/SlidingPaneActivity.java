@@ -62,7 +62,6 @@ public class SlidingPaneActivity extends BaseActivity implements AdapterView.OnI
         mPanes = (SlidingPaneLayout) findViewById(R.id.slidingPane);
         mPanes.setParallaxDistance(PARALLAX_SIZE);
         mPanes.setShadowResource(R.drawable.sliding_pane_shadow);
-        mPanes.openPane();
 
         // ListView initialization
         mListItems = getResources().getStringArray(R.array.animals);
