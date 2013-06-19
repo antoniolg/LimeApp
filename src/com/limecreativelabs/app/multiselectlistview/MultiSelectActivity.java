@@ -55,7 +55,6 @@ public class MultiSelectActivity extends BaseActivity implements AdapterView.OnI
         mList.setOnItemClickListener(this);
         mList.setAdapter(adapter);
 
-
         setupActionBar();
     }
 

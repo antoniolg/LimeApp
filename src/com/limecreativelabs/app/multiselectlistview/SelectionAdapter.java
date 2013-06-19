@@ -22,7 +22,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
-import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.ActionMode;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
@@ -49,7 +49,7 @@ class SelectionAdapter extends ArrayAdapter<String>
     /**
      * We need the context activity to launch the modal action bar
      */
-    private final SherlockActivity mActivity;
+    private final SherlockFragmentActivity mActivity;
 
     private ActionMode mMode;
 
@@ -76,7 +76,7 @@ class SelectionAdapter extends ArrayAdapter<String>
         mView = list;
         mView.setOnItemLongClickListener(this);
 
-        mActivity = (SherlockActivity) context;
+        mActivity = (SherlockFragmentActivity) context;
     }
 
     /**
