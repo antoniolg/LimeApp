@@ -32,6 +32,7 @@ import com.haarman.listviewanimations.swinginadapters.prepared.SwingBottomInAnim
 import com.limecreativelabs.app.actionbarrefresh.ActionBarRefreshActivity;
 import com.limecreativelabs.app.actionbarsearch.ActionBarSearchActivity;
 import com.limecreativelabs.app.drawerlayout.DrawerLayoutActivity;
+import com.limecreativelabs.app.foregroundlayout.ForegroundLayoutActivity;
 import com.limecreativelabs.app.liveconnectivity.LiveTestConnectionActivity;
 import com.limecreativelabs.app.multiselectlistview.MultiSelectActivity;
 import com.limecreativelabs.app.shared.BaseActivity;
@@ -154,6 +155,8 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
             case 6:
                 c = SlidingPaneActivity.class;
                 break;
+            case 7:
+                c = ForegroundLayoutActivity.class;
         }
 
         // Open selected tutorial and sends tutorial URL

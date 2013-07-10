@@ -15,10 +15,7 @@
   ~ limitations under the License.
   -->
 
-<resources>
-    <color name="listBackground">#333333</color>
-    <color name="textForeground">#e0e0e0</color>
-    <color name="holo_dark_green">#669900</color>
-    <color name="holo_dark_red">#CC0000</color>
-    <color name="holo_dark_green_semitransp">#80669900</color>
-</resources>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/holo_dark_green_semitransp" android:state_pressed="true"/>
+    <item android:drawable="@android:color/transparent"/>
+</selector>

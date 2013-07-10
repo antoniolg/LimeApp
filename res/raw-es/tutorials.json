@@ -1,8 +1,14 @@
 [
     {
+        id: 7,
+        name: "Desmontando Bandhook (I): Foreground en cualquier Layout",
+        date: "10/07/2013",
+        url: "http://goo.gl/I0KwV"
+    },
+    {
         id: 6,
         name: "Sliding Pane Layout, cómo usarlo",
-        date: " 18/06/2013",
+        date: "18/06/2013",
         url: "http://goo.gl/f4JiC"
     },
     {

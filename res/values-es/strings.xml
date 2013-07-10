@@ -45,4 +45,5 @@
     <string name="drawer_open">Drawer Abierto</string>
     <string name="drawer_close">Drawer Cerrado</string>
     <string name="sliding_layout">Sliding Pane Layout</string>
+    <string name="item_pressed">Elemento pulsado</string>
 </resources>

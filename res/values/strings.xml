@@ -49,4 +49,6 @@
     <string name="drawer_open">Drawer Open</string>
     <string name="drawer_close">Drawer Close</string>
     <string name="sliding_layout">Sliding Pane Layout</string>
+    <string name="foreground_layout">Foreground Layout</string>
+    <string name="item_pressed">Item pressed</string>
 </resources>

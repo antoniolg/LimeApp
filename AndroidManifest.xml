@@ -85,6 +85,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
+        <activity
+            android:name=".foregroundlayout.ForegroundLayoutActivity"
+            android:label="@string/foreground_layout"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
 
         <receiver android:name="com.limecreativelabs.app.liveconnectivity.ConnectivityReceiver">
             <intent-filter>
